@@ -31,6 +31,7 @@ import type {
     ThreeDControlsStateShape,
 } from '../types';
 import PrintSettingsCard from './PrintSettingsCard';
+import BedFitPanel from './BedFitPanel';
 import PrintInstructions from './PrintInstructions';
 import AutoPaintTab from './AutoPaintTab';
 import type { ImageDimensions } from '../hooks/useSwatches';
@@ -621,6 +622,16 @@ export default function ThreeDControls({
                         pixelSize,
                         smoothMeshing,
                     })
+                }
+            />
+
+            <BedFitPanel
+                imageDimensions={imageDimensions}
+                onPixelSizeChange={setPixelSize}
+                targetHexes={
+                    paintMode === 'autopaint' && autoPaintSliceData?.filamentSwatches?.length
+                        ? autoPaintSliceData.filamentSwatches.map((swatch) => swatch.hex)
+                        : filtered.map((swatch) => swatch.hex)
                 }
             />
 

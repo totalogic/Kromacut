@@ -3,11 +3,15 @@ import * as THREE from 'three';
 import { MINIMAL_PROJECT_SETTINGS, KROMACUT_CONFIG } from './slicerDefaults';
 import { clampProgress, exportMeshProgress, exportZipProgress, progressInSpan } from './progress';
 import { normalizeHexColor } from './colorUtils';
+import { matchNearestOwned, type OwnedFilament } from './ownedFilaments';
 
 export interface Export3MFOptions {
     layerHeight?: number;
     firstLayerHeight?: number;
     layerFilamentColors?: string[]; // Optional per-layer filament colors (hex) for export
+    ownedSpools?: readonly OwnedFilament[];
+    ownedCostMin?: number;
+    ownedCostMax?: number;
     onProgress?: (progress: number) => void;
     onZipProgress?: (progress: { percent: number; currentFile?: string | null }) => void;
     metadataFiles?: readonly {
@@ -263,20 +267,37 @@ ${metadataContentTypes}${metadataContentTypes ? '\n' : ''}
     // Apply Colors/Filaments
     // Ensure we have at least one color if none found (fallback to white)
     const exportColors = colors.length > 0 ? colors : ['FFFFFF'];
-
-    // Helper to expand arrays to match color count
     const expand = (val: string, count: number) => Array(count).fill(val);
+    const filamentColours = exportColors.map((color) => '#' + color);
+    const filamentTypes = expand('PLA', exportColors.length);
+    const filamentSettings = expand('Generic PLA @Kromacut 0.4 nozzle', exportColors.length);
+    const filamentVendors = expand('Generic', exportColors.length);
+    const filamentCosts = expand('0', exportColors.length);
 
-    projectSettings.filament_colour = exportColors.map((c) => '#' + c);
+    if (options?.ownedSpools && options.ownedSpools.length > 0) {
+        const matched = matchNearestOwned(
+            filamentColours,
+            options.ownedSpools,
+            options.ownedCostMin ?? 0,
+            options.ownedCostMax ?? Number.POSITIVE_INFINITY
+        );
+        const byTarget = new Map(matched.matches.map((item) => [item.targetHex, item.spool]));
+        filamentColours.forEach((hex, index) => {
+            const spool = byTarget.get(normalizeHexColor(hex, hex));
+            if (!spool) return;
+            filamentColours[index] = spool.hex;
+            filamentTypes[index] = spool.type;
+            filamentSettings[index] = spool.settingsId;
+            filamentVendors[index] = spool.vendor;
+            filamentCosts[index] = spool.cost.toString();
+        });
+    }
 
-    projectSettings.filament_type = expand('PLA', exportColors.length);
-
-    projectSettings.filament_settings_id = expand(
-        'Generic PLA @Kromacut 0.4 nozzle',
-        exportColors.length
-    );
-
-    projectSettings.filament_vendor = expand('Generic', exportColors.length);
+    projectSettings.filament_colour = filamentColours;
+    projectSettings.filament_type = filamentTypes;
+    projectSettings.filament_settings_id = filamentSettings;
+    projectSettings.filament_vendor = filamentVendors;
+    (projectSettings as { filament_cost?: string[] }).filament_cost = filamentCosts;
 
     // Build object resources using a chunked writer to avoid OOM with massive arrays
     const xmlParts: string[] = [];

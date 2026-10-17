@@ -33,6 +33,7 @@ import PreviewActions from './components/PreviewActions';
 import { useDropzone } from './hooks/useDropzone';
 import { exportObjectToStlBlob } from './lib/exportStl';
 import { exportObjectTo3MFBlob } from './lib/export3mf';
+import { loadBedFitProcess, loadOwnedFilaments } from './lib/ownedFilaments';
 import { useAppHandlers, type ExportProgressStep } from './hooks/useAppHandlers';
 import { useProcessingState } from './hooks/useProcessingState';
 import { useBuildWarning } from './hooks/useBuildWarning';
@@ -626,16 +627,21 @@ function App(): React.ReactElement | null {
             setExportStep,
             exportingSTL,
             exportObjectToStlBlob,
-            exportObjectTo3MFBlob: (obj, onProgress, onZipProgress) =>
-                exportObjectTo3MFBlob(obj, {
+            exportObjectTo3MFBlob: (obj, onProgress, onZipProgress) => {
+                const bedFit = loadBedFitProcess();
+                return exportObjectTo3MFBlob(obj, {
                     layerHeight: builtModelState.layerHeight,
                     firstLayerHeight: builtModelState.slicerFirstLayerHeight,
                     layerFilamentColors: builtModelAutoPaint
                         ? builtModelState.autoPaintFilamentSwatches?.map((s) => s.hex)
                         : undefined,
+                    ownedSpools: bedFit.enabled ? loadOwnedFilaments() : undefined,
+                    ownedCostMin: bedFit.costMin,
+                    ownedCostMax: bedFit.costMax,
                     onProgress,
                     onZipProgress,
-                }),
+                });
+            },
             applyQuantize,
             swatches,
         });
