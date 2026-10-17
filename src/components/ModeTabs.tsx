@@ -10,12 +10,15 @@ interface Props {
 export const ModeTabs: React.FC<Props> = ({ mode, onChange }) => {
     const { t } = useTranslation('workspace');
     return (
-        <div className="p-4 border-b border-border pr-[25px]" aria-hidden={false}>
+        <div className="space-y-2 border-b border-border p-4 pr-[25px]">
+            <p className="text-xs leading-relaxed text-muted-foreground">
+                {mode === '2d' ? t('modeTabs.importHint') : t('modeTabs.printHint')}
+            </p>
             <div className="flex gap-2">
                 <Button
                     variant={mode === '2d' ? 'default' : 'outline'}
                     size="sm"
-                    className="flex-1 font-semibold"
+                    className="h-auto flex-1 py-2 font-semibold"
                     onClick={() => onChange('2d')}
                     aria-pressed={mode === '2d'}
                 >
@@ -24,7 +27,7 @@ export const ModeTabs: React.FC<Props> = ({ mode, onChange }) => {
                 <Button
                     variant={mode === '3d' ? 'default' : 'outline'}
                     size="sm"
-                    className="flex-1 font-semibold"
+                    className="h-auto flex-1 py-2 font-semibold"
                     onClick={() => onChange('3d')}
                     aria-pressed={mode === '3d'}
                 >

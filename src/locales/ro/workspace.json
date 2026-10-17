@@ -39,7 +39,10 @@
     "applyAdjustments": "Aplică ajustările",
     "apply": "Aplică",
     "resetSettingDefault": "Restabilește valoarea implicită pentru {{setting}}",
-    "resetSetting": "Resetează {{setting}}"
+    "resetSetting": "Resetează {{setting}}",
+    "whatTheseDo": "Aceste glisoare schimbă imaginea importată. Nu setează patul imprimantei.",
+    "helpHint": "Deschide semnul întrebării de lângă un glisor ca să vezi ce schimbă.",
+    "explainSetting": "Ce face {{setting}}"
   },
   "deditherPanel": {
     "dedither": "Eliminare dithering",
@@ -187,8 +190,10 @@
     "pixelSize": "{{size}} px"
   },
   "modeTabs": {
-    "2d": "2D",
-    "3d": "3D"
+    "2d": "1. Import",
+    "3d": "2. Tipărire",
+    "importHint": "Primul pas. Pune sau alege imaginea aici, înainte de setările de tipărire.",
+    "printHint": "Al doilea pas. Potrivește patul și exportă după ce imaginea arată bine."
   },
   "progressOverlay": {
     "elapsed": "Timp scurs",
@@ -221,7 +226,21 @@
     "tint": "Tentă",
     "clarity": "Claritate",
     "stops": "trepte",
-    "degrees": "grade"
+    "degrees": "grade",
+    "help": {
+      "exposure": "Un stop dublează sau înjumătățește luminozitatea. Plus unu face imaginea de două ori mai luminoasă. Minus unu o face pe jumătate. Pixelii luminoși se taie la alb.",
+      "contrast": "Îndepărtează tonurile de griul mediu. Plus întunecă umbrele și luminează luminile. Minus aplatizează imaginea.",
+      "highlights": "Doar zonele luminoase, peste circa 60 la sută luminozitate. Plus le ridică. Minus le coboară.",
+      "shadows": "Doar zonele întunecate, sub circa 40 la sută luminozitate. Plus deschide detaliul. Minus îl strivește.",
+      "whites": "Cei mai luminoși pixeli, peste circa 90 la sută luminozitate. Plus îi împinge spre alb. Minus îi aduce înapoi.",
+      "blacks": "Cei mai întunecați pixeli, sub circa 10 la sută luminozitate. Plus ridică negrul. Minus îl adâncește.",
+      "saturation": "Schimbă puterea culorii pe fiecare pixel la fel. Plus e mai viu. Minus merge spre gri.",
+      "vibrance": "Ridică mai mult culorile stinse decât pe cele deja puternice. Mai bun decât saturația pentru piele.",
+      "hue": "Rotește fiecare culoare pe roata de culori. 180 de grade transformă o culoare în opusul ei.",
+      "temperature": "Plus mută imaginea spre roșu și cald. Minus o mută spre albastru și rece.",
+      "tint": "Plus adaugă magenta. Minus adaugă verde. Puțin ajunge ca să corectezi o dominantă.",
+      "clarity": "Schimbă contrastul local al marginilor. Plus le accentuează. Minus le înmoaie. Mărimea tipăririi rămâne aceeași."
+    }
   },
   "sortable": {
     "grabbed": "Elementul reordonabil „{{item}}” a fost preluat. Poziția curentă este {{position}} din {{total}}. Folosește săgețile pentru a-l muta și tasta Spațiu pentru a-l plasa.",

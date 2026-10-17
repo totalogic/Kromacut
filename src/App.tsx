@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState, useTransition } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Upload } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { translateRuntimeMessage } from './lib/runtimeMessages';
 import ThreeDControls from './components/ThreeDControls';
 import {
@@ -222,6 +224,7 @@ const saveAutoPaintPersisted = (value: AutoPaintPersisted) => {
 
 function App(): React.ReactElement | null {
     const { t } = useTranslation('common');
+    const { t: workspaceT } = useTranslation('workspace');
     const toolPath = appPath(isTauri());
     // Multi-plate mode (issue #35) is still a stub. Per the plan, the flow diverges
     // at *image upload*, not at app start — so until an image is uploaded the app
@@ -883,6 +886,26 @@ function App(): React.ReactElement | null {
                                             }}
                                             onTouchUpExit={() => setTouchUpTool(null)}
                                         />
+                                        {!imageSrc && (
+                                            <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center p-6">
+                                                <div className="pointer-events-auto w-full max-w-sm rounded-lg border bg-card p-6 text-left shadow-sm">
+                                                    <p className="text-sm font-semibold text-foreground">
+                                                        {workspaceT('modeTabs.2d')}
+                                                    </p>
+                                                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                                                        {workspaceT('modeTabs.importHint')}
+                                                    </p>
+                                                    <Button
+                                                        type="button"
+                                                        className="mt-4"
+                                                        onClick={() => inputRef.current?.click()}
+                                                    >
+                                                        <Upload className="h-4 w-4" />
+                                                        {workspaceT('previewActions.chooseFile')}
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                        )}
                                         {processingActive && (
                                             <ProgressOverlay
                                                 title={progressOperationTitle()}

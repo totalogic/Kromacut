@@ -39,7 +39,10 @@
     "applyAdjustments": "Aplicar ajustes",
     "apply": "Aplicar",
     "resetSettingDefault": "Restablecer {{setting}} al valor predeterminado",
-    "resetSetting": "Restablecer {{setting}}"
+    "resetSetting": "Restablecer {{setting}}",
+    "whatTheseDo": "Estos controles cambian la imagen importada. No fijan la cama de impresión.",
+    "helpHint": "Abre el signo de interrogación junto a un control para ver qué cambia.",
+    "explainSetting": "Qué hace {{setting}}"
   },
   "deditherPanel": {
     "dedither": "Eliminar tramado",
@@ -187,8 +190,10 @@
     "pixelSize": "{{size}} px"
   },
   "modeTabs": {
-    "2d": "2D",
-    "3d": "3D"
+    "2d": "1. Importar",
+    "3d": "2. Imprimir",
+    "importHint": "Primer paso. Suelta o elige la imagen aquí, antes de los ajustes de impresión.",
+    "printHint": "Segundo paso. Ajusta la cama y exporta cuando la imagen esté bien."
   },
   "progressOverlay": {
     "elapsed": "Transcurrido",
@@ -221,7 +226,21 @@
     "tint": "Matiz",
     "clarity": "Claridad",
     "stops": "pasos",
-    "degrees": "grados"
+    "degrees": "grados",
+    "help": {
+      "exposure": "Un paso duplica o reduce a la mitad el brillo. Más uno deja la imagen el doble de clara. Menos uno la deja a la mitad. Los píxeles claros se recortan a blanco.",
+      "contrast": "Separa los tonos del gris medio. El más oscurece sombras y aclara luces. El menos aplana la imagen.",
+      "highlights": "Solo zonas claras, por encima de cerca del 60 % de luminosidad. El más las sube. El menos las baja.",
+      "shadows": "Solo zonas oscuras, por debajo de cerca del 40 % de luminosidad. El más abre detalle. El menos lo aplasta.",
+      "whites": "Los píxeles más claros, por encima de cerca del 90 % de luminosidad. El más los empuja al blanco. El menos los recupera.",
+      "blacks": "Los píxeles más oscuros, por debajo de cerca del 10 % de luminosidad. El más sube el negro. El menos lo profundiza.",
+      "saturation": "Cambia la fuerza del color en cada píxel por igual. El más es más vivo. El menos va hacia el gris.",
+      "vibrance": "Refuerza más los colores apagados que los que ya son fuertes. Úsalo antes que la saturación en la piel.",
+      "hue": "Gira cada color en la rueda. 180 grados convierte un color en su opuesto.",
+      "temperature": "El más calienta la imagen hacia el rojo. El menos la enfría hacia el azul.",
+      "tint": "El más añade magenta. El menos añade verde. Un ajuste pequeño corrige una dominante.",
+      "clarity": "Cambia el contraste local de los bordes. El más los marca. El menos los suaviza. El tamaño de impresión no cambia."
+    }
   },
   "sortable": {
     "grabbed": "Elemento ordenable «{{item}}» seleccionado. Su posición actual es {{position}} de {{total}}. Usa las flechas para moverlo y Espacio para soltarlo.",

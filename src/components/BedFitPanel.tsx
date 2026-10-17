@@ -115,6 +115,22 @@ export default function BedFitPanel({
     return (
         <CollapsibleCard id="bed-fit" title={t('bedFit.title')} subtitle={t('bedFit.subtitle')}>
             <div className="space-y-3">
+                <label className="block space-y-1 text-xs">
+                    <span>{t('bedFit.bed')}</span>
+                    <select
+                        data-testid="bed-fit-select"
+                        aria-label={t('bedFit.bed')}
+                        className="h-9 w-full rounded-md border bg-background px-2"
+                        value={process.bedId}
+                        onChange={(event) => updateProcess({ ...process, bedId: event.target.value })}
+                    >
+                        {BED_PRESETS.map((preset) => (
+                            <option key={preset.id} value={preset.id}>
+                                {preset.name}
+                            </option>
+                        ))}
+                    </select>
+                </label>
                 <div className="flex flex-wrap gap-2">
                     {(['spools', 'card', 'process'] as const).map((item) => (
                         <Button
@@ -237,22 +253,6 @@ export default function BedFitPanel({
 
                 {step === 'process' && (
                     <div className="space-y-3">
-                        <label className="block space-y-1 text-xs">
-                            <span>{t('bedFit.bed')}</span>
-                            <select
-                                className="h-9 w-full rounded-md border bg-background px-2"
-                                value={process.bedId}
-                                onChange={(event) =>
-                                    updateProcess({ ...process, bedId: event.target.value })
-                                }
-                            >
-                                {BED_PRESETS.map((preset) => (
-                                    <option key={preset.id} value={preset.id}>
-                                        {preset.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </label>
                         {process.bedId === 'custom' && (
                             <div className="grid grid-cols-2 gap-2">
                                 <Input

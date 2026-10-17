@@ -31,6 +31,9 @@
     "adjustmentsPanel": {
         "adjustments": "Adjustments",
         "fineTuneImageProperties": "Fine-tune image properties",
+        "whatTheseDo": "These sliders change the imported picture. They do not set the printer bed.",
+        "helpHint": "Open the question mark beside a slider to see what it changes.",
+        "explainSetting": "What {{setting}} does",
         "adjustmentsModified": "Adjustments modified",
         "resetAllAdjustmentsToDefault": "Reset all adjustments to default",
         "resetAllAdjustments": "Reset all adjustments",
@@ -184,8 +187,10 @@
         "pixelSize": "{{size}} px"
     },
     "modeTabs": {
-        "2d": "2D",
-        "3d": "3D"
+        "2d": "1. Import",
+        "3d": "2. Print",
+        "importHint": "First step. Drop or choose the picture here before any print settings.",
+        "printHint": "Second step. Fit the bed and export after the picture looks right."
     },
     "progressOverlay": {
         "elapsed": "Elapsed",
@@ -218,7 +223,21 @@
         "tint": "Tint",
         "clarity": "Clarity",
         "stops": "stops",
-        "degrees": "deg"
+        "degrees": "deg",
+        "help": {
+            "exposure": "One stop doubles or halves brightness. Plus one is twice as bright. Minus one is half as bright. Bright pixels clip to white.",
+            "contrast": "Moves tones away from middle gray. Plus darkens shadows and brightens lights. Minus flattens the picture.",
+            "highlights": "Affects only bright areas, above about 60 percent lightness. Plus lifts them. Minus pulls them down.",
+            "shadows": "Affects only dark areas, below about 40 percent lightness. Plus opens detail. Minus crushes it.",
+            "whites": "Affects the brightest pixels, above about 90 percent lightness. Plus pushes them to white. Minus pulls them back.",
+            "blacks": "Affects the darkest pixels, below about 10 percent lightness. Plus lifts the floor. Minus deepens black.",
+            "saturation": "Changes color strength on every pixel equally. Plus is more vivid. Minus moves toward gray.",
+            "vibrance": "Boosts muted colors more than colors that are already strong. Prefer this over saturation for skin.",
+            "hue": "Rotates every color around the color wheel. 180 degrees turns a color into its opposite.",
+            "temperature": "Plus shifts the picture toward red and warm. Minus shifts it toward blue and cool.",
+            "tint": "Plus adds magenta. Minus adds green. Use a small amount to correct a color cast.",
+            "clarity": "Changes local edge contrast. Plus sharpens boundaries. Minus softens them. Print size stays the same."
+        }
     },
     "sortable": {
         "grabbed": "Grabbed sortable item \"{{item}}\". Current position is {{position}} of {{total}}. Use arrow keys to move, space to drop.",

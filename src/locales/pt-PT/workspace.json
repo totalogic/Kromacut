@@ -39,7 +39,10 @@
     "applyAdjustments": "Aplicar ajustes",
     "apply": "Aplicar",
     "resetSettingDefault": "Repor a predefinição de {{setting}}",
-    "resetSetting": "Repor {{setting}}"
+    "resetSetting": "Repor {{setting}}",
+    "whatTheseDo": "Estes controlos mudam a imagem importada. Não definem a mesa de impressão.",
+    "helpHint": "Abra o ponto de interrogação junto a um controlo para ver o que muda.",
+    "explainSetting": "O que faz {{setting}}"
   },
   "deditherPanel": {
     "dedither": "Remover pontilhamento",
@@ -187,8 +190,10 @@
     "pixelSize": "{{size}} px"
   },
   "modeTabs": {
-    "2d": "2D",
-    "3d": "3D"
+    "2d": "1. Importar",
+    "3d": "2. Imprimir",
+    "importHint": "Primeiro passo. Largue ou escolha a imagem aqui, antes das definições de impressão.",
+    "printHint": "Segundo passo. Ajuste a mesa e exporte quando a imagem estiver certa."
   },
   "progressOverlay": {
     "elapsed": "Tempo decorrido",
@@ -221,7 +226,21 @@
     "tint": "Tonalidade",
     "clarity": "Claridade",
     "stops": "pontos",
-    "degrees": "graus"
+    "degrees": "graus",
+    "help": {
+      "exposure": "Um ponto duplica ou reduz para metade o brilho. Mais um deixa a imagem duas vezes mais clara. Menos um deixa-a a metade. Os píxeis claros ficam cortados no branco.",
+      "contrast": "Afasta os tons do cinzento médio. O mais escurece sombras e clareia luzes. O menos achata a imagem.",
+      "highlights": "Só zonas claras, acima de cerca de 60% de luminosidade. O mais sobe-as. O menos desce-as.",
+      "shadows": "Só zonas escuras, abaixo de cerca de 40% de luminosidade. O mais abre detalhe. O menos esmaga-o.",
+      "whites": "Os píxeis mais claros, acima de cerca de 90% de luminosidade. O mais empurra-os para branco. O menos recupera-os.",
+      "blacks": "Os píxeis mais escuros, abaixo de cerca de 10% de luminosidade. O mais levanta o preto. O menos aprofunda-o.",
+      "saturation": "Muda a força da cor em cada píxel por igual. O mais fica mais vivo. O menos vai para o cinzento.",
+      "vibrance": "Reforça mais as cores baças do que as que já são fortes. Prefira isto à saturação na pele.",
+      "hue": "Roda cada cor na roda de cores. 180 graus transforma uma cor no seu oposto.",
+      "temperature": "O mais aquece a imagem para o vermelho. O menos arrefece-a para o azul.",
+      "tint": "O mais acrescenta magenta. O menos acrescenta verde. Um ajuste pequeno corrige uma dominante.",
+      "clarity": "Muda o contraste local das arestas. O mais marca-as. O menos suaviza-as. O tamanho de impressão não muda."
+    }
   },
   "sortable": {
     "grabbed": "Item ordenável “{{item}}” selecionado. A posição atual é {{position}} de {{total}}. Use as setas para mover e Espaço para soltar.",

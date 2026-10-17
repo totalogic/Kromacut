@@ -38,7 +38,10 @@
     "applyAdjustments": "Bildanpassungen anwenden",
     "apply": "Anwenden",
     "resetSettingDefault": "{{setting}} auf Standard zurücksetzen",
-    "resetSetting": "{{setting}} zurücksetzen"
+    "resetSetting": "{{setting}} zurücksetzen",
+    "whatTheseDo": "Diese Regler ändern das importierte Bild. Sie setzen nicht das Druckbett.",
+    "helpHint": "Fragezeichen neben einem Regler öffnen, um die Wirkung zu lesen.",
+    "explainSetting": "Wirkung von {{setting}}"
   },
   "deditherPanel": {
     "dedither": "Raster glätten",
@@ -184,8 +187,10 @@
     "pixelSize": "{{size}} px"
   },
   "modeTabs": {
-    "2d": "2D",
-    "3d": "3D"
+    "2d": "1. Import",
+    "3d": "2. Druck",
+    "importHint": "Erster Schritt. Bild hier ablegen oder wählen, bevor Druckeinstellungen folgen.",
+    "printHint": "Zweiter Schritt. Bett anpassen und exportieren, wenn das Bild passt."
   },
   "progressOverlay": {
     "elapsed": "Vergangen",
@@ -218,7 +223,21 @@
     "tint": "Farbverschiebung",
     "clarity": "Klarheit",
     "stops": "Blendenstufen",
-    "degrees": "Grad"
+    "degrees": "Grad",
+    "help": {
+      "exposure": "Eine Blende verdoppelt oder halbiert die Helligkeit. Plus eins ist doppelt so hell. Minus eins ist halb so hell. Helle Pixel laufen ins Weiß.",
+      "contrast": "Zieht Töne vom Mittelgrau weg. Plus macht Schatten dunkler und Lichter heller. Minus flacht das Bild ab.",
+      "highlights": "Nur helle Flächen, über etwa 60 Prozent Helligkeit. Plus hebt sie an. Minus zieht sie herunter.",
+      "shadows": "Nur dunkle Flächen, unter etwa 40 Prozent Helligkeit. Plus öffnet Detail. Minus quetscht es zu.",
+      "whites": "Die hellsten Pixel, über etwa 90 Prozent Helligkeit. Plus drückt sie ins Weiß. Minus holt sie zurück.",
+      "blacks": "Die dunkelsten Pixel, unter etwa 10 Prozent Helligkeit. Plus hebt den Boden. Minus vertieft Schwarz.",
+      "saturation": "Ändert die Farbstärke jedes Pixels gleich. Plus wirkt lebhafter. Minus geht Richtung Grau.",
+      "vibrance": "Hebt matte Farben stärker als schon kräftige Farben. Für Haut besser als Sättigung.",
+      "hue": "Dreht jede Farbe im Farbkreis. 180 Grad macht aus einer Farbe ihr Gegenteil.",
+      "temperature": "Plus verschiebt das Bild zu Rot und warm. Minus verschiebt es zu Blau und kühl.",
+      "tint": "Plus fügt Magenta hinzu. Minus fügt Grün hinzu. Wenig genügt gegen einen Farbstich.",
+      "clarity": "Ändert den lokalen Kantenkontrast. Plus schärft Grenzen. Minus weicht sie auf. Die Druckgröße bleibt gleich."
+    }
   },
   "sortable": {
     "grabbed": "Sortierbares Element „{{item}}“ aufgenommen. Aktuelle Position: {{position}} von {{total}}. Mit den Pfeiltasten verschieben, mit der Leertaste ablegen.",

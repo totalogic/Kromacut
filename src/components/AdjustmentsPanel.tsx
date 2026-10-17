@@ -3,8 +3,14 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { CollapsibleCard, DirtyDot } from '@/components/CollapsibleCard';
-import { Check, RotateCcw } from 'lucide-react';
+import { Check, CircleHelp, RotateCcw } from 'lucide-react';
 import type { SliderDef } from '@/components/sliderDefs';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 interface Props {
     defs: SliderDef[];
@@ -116,7 +122,7 @@ export const AdjustmentsPanel: React.FC<Props> = React.memo(
             <CollapsibleCard
                 id="adjustments"
                 title={t('adjustmentsPanel.adjustments')}
-                subtitle={t('adjustmentsPanel.fineTuneImageProperties')}
+                subtitle={t('adjustmentsPanel.whatTheseDo')}
                 collapsedSummary={
                     !allDefault ? (
                         <DirtyDot title={t('adjustmentsPanel.adjustmentsModified')} />
@@ -135,16 +141,34 @@ export const AdjustmentsPanel: React.FC<Props> = React.memo(
                     </button>
                 }
             >
+                <TooltipProvider delayDuration={200}>
                 <div className="space-y-4">
+                    <p className="text-xs leading-relaxed text-muted-foreground">
+                        {t('adjustmentsPanel.helpHint')}
+                    </p>
                     {defs.map((s) => {
                         const displayVal = values[s.key];
                         const isDefault = displayVal === s.default;
                         return (
                             <div key={s.key} className="space-y-2">
                                 <div className="flex justify-between items-center text-sm gap-2">
-                                    <span className="font-medium text-foreground">
-                                        {t(s.labelKey)}
-                                    </span>
+                                    <Tooltip>
+                                        <TooltipTrigger asChild>
+                                            <button
+                                                type="button"
+                                                className="inline-flex items-center gap-1 text-left font-medium text-foreground"
+                                                aria-label={t('adjustmentsPanel.explainSetting', {
+                                                    setting: t(s.labelKey),
+                                                })}
+                                            >
+                                                <span>{t(s.labelKey)}</span>
+                                                <CircleHelp className="h-3.5 w-3.5 text-muted-foreground" />
+                                            </button>
+                                        </TooltipTrigger>
+                                        <TooltipContent side="right">
+                                            {t(s.helpKey)}
+                                        </TooltipContent>
+                                    </Tooltip>
                                     <div className="flex items-center gap-2">
                                         <span className="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-semibold">
                                             {displayVal}
@@ -195,6 +219,7 @@ export const AdjustmentsPanel: React.FC<Props> = React.memo(
                         );
                     })}
                 </div>
+                </TooltipProvider>
                 <div className="h-px bg-border/50 my-4" />
                 <Button
                     type="button"

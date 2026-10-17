@@ -39,7 +39,10 @@
     "applyAdjustments": "Appliquer les réglages",
     "apply": "Appliquer",
     "resetSettingDefault": "Rétablir la valeur par défaut de {{setting}}",
-    "resetSetting": "Réinitialiser {{setting}}"
+    "resetSetting": "Réinitialiser {{setting}}",
+    "whatTheseDo": "Ces curseurs modifient l’image importée. Ils ne règlent pas le plateau.",
+    "helpHint": "Ouvrez le point d’interrogation près d’un curseur pour voir son effet.",
+    "explainSetting": "Effet de {{setting}}"
   },
   "deditherPanel": {
     "dedither": "Détramage",
@@ -187,8 +190,10 @@
     "pixelSize": "{{size}} px"
   },
   "modeTabs": {
-    "2d": "2D",
-    "3d": "3D"
+    "2d": "1. Importer",
+    "3d": "2. Imprimer",
+    "importHint": "Première étape. Déposez ou choisissez l’image ici, avant les réglages d’impression.",
+    "printHint": "Deuxième étape. Ajustez le plateau et exportez quand l’image convient."
   },
   "progressOverlay": {
     "elapsed": "Temps écoulé",
@@ -221,7 +226,21 @@
     "tint": "Nuance",
     "clarity": "Clarté",
     "stops": "IL",
-    "degrees": "deg"
+    "degrees": "deg",
+    "help": {
+      "exposure": "Un stop double ou divise la luminosité. Plus un rend l’image deux fois plus claire. Moins un la rend deux fois plus sombre. Les pixels clairs sont écrêtés au blanc.",
+      "contrast": "Écarte les tons du gris moyen. Le plus assombrit les ombres et éclaircit les lumières. Le moins aplatit l’image.",
+      "highlights": "Agit seulement sur les zones claires, au-dessus d’environ 60 % de luminosité. Le plus les relève. Le moins les rabaisse.",
+      "shadows": "Agit seulement sur les zones sombres, sous environ 40 % de luminosité. Le plus révèle le détail. Le moins l’écrase.",
+      "whites": "Agit sur les pixels les plus clairs, au-dessus d’environ 90 % de luminosité. Le plus les pousse vers le blanc. Le moins les ramène.",
+      "blacks": "Agit sur les pixels les plus sombres, sous environ 10 % de luminosité. Le plus relève le noir. Le moins l’approfondit.",
+      "saturation": "Change la force de la couleur sur chaque pixel. Le plus rend l’image plus vive. Le moins la rapproche du gris.",
+      "vibrance": "Renforce surtout les couleurs ternes, moins celles déjà fortes. Préférez ceci à la saturation pour la peau.",
+      "hue": "Fait tourner chaque couleur sur le cercle chromatique. 180 degrés transforme une couleur en son opposée.",
+      "temperature": "Le plus réchauffe l’image vers le rouge. Le moins la refroidit vers le bleu.",
+      "tint": "Le plus ajoute du magenta. Le moins ajoute du vert. Un petit réglage corrige une dominante.",
+      "clarity": "Change le contraste local des contours. Le plus les accentue. Le moins les adoucit. La taille d’impression ne change pas."
+    }
   },
   "sortable": {
     "grabbed": "Élément à trier « {{item}} » saisi. Position actuelle : {{position}} sur {{total}}. Utilisez les flèches pour le déplacer et Espace pour le déposer.",

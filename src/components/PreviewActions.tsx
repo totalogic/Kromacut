@@ -472,13 +472,14 @@ export const PreviewActions: React.FC<PreviewActionsProps> = ({
                         <Grid3x3 className="w-4 h-4" />
                     </Button>
                     <Button
-                        size="icon"
+                        size="sm"
                         title={t('previewActions.chooseFile')}
                         aria-label={t('previewActions.chooseFile')}
                         onClick={onPickFile}
-                        className="bg-primary hover:bg-primary/80 text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="bg-primary hover:bg-primary/80 text-primary-foreground gap-1.5"
                     >
                         <Upload className="w-4 h-4" />
+                        <span>{t('previewActions.chooseFile')}</span>
                     </Button>
                     <Button
                         size="icon"

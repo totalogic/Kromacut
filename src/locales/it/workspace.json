@@ -39,7 +39,10 @@
     "applyAdjustments": "Applica le regolazioni",
     "apply": "Applica",
     "resetSettingDefault": "Ripristina il valore predefinito di {{setting}}",
-    "resetSetting": "Ripristina {{setting}}"
+    "resetSetting": "Ripristina {{setting}}",
+    "whatTheseDo": "Questi cursori cambiano l’immagine importata. Non impostano il piano di stampa.",
+    "helpHint": "Apri il punto interrogativo accanto a un cursore per vedere cosa cambia.",
+    "explainSetting": "Cosa fa {{setting}}"
   },
   "deditherPanel": {
     "dedither": "Rimozione dithering",
@@ -187,8 +190,10 @@
     "pixelSize": "{{size}} px"
   },
   "modeTabs": {
-    "2d": "2D",
-    "3d": "3D"
+    "2d": "1. Importa",
+    "3d": "2. Stampa",
+    "importHint": "Primo passo. Trascina o scegli l’immagine qui, prima delle impostazioni di stampa.",
+    "printHint": "Secondo passo. Adatta il piano ed esporta quando l’immagine è giusta."
   },
   "progressOverlay": {
     "elapsed": "Trascorso",
@@ -221,7 +226,21 @@
     "tint": "Tinta",
     "clarity": "Chiarezza",
     "stops": "stop",
-    "degrees": "gradi"
+    "degrees": "gradi",
+    "help": {
+      "exposure": "Uno stop raddoppia o dimezza la luminosità. Più uno rende l’immagine due volte più chiara. Meno uno la rende metà. I pixel chiari vengono tagliati al bianco.",
+      "contrast": "Allontana i toni dal grigio medio. Il più scurisce le ombre e schiarisce le luci. Il meno appiattisce l’immagine.",
+      "highlights": "Solo le zone chiare, sopra circa il 60% di luminosità. Il più le alza. Il meno le abbassa.",
+      "shadows": "Solo le zone scure, sotto circa il 40% di luminosità. Il più apre il dettaglio. Il meno lo schiaccia.",
+      "whites": "I pixel più chiari, sopra circa il 90% di luminosità. Il più li spinge al bianco. Il meno li recupera.",
+      "blacks": "I pixel più scuri, sotto circa il 10% di luminosità. Il più alza il nero. Il meno lo approfondisce.",
+      "saturation": "Cambia la forza del colore su ogni pixel allo stesso modo. Il più è più vivo. Il meno va verso il grigio.",
+      "vibrance": "Rinforza i colori spenti più di quelli già forti. Meglio della saturazione per la pelle.",
+      "hue": "Ruota ogni colore sulla ruota cromatica. 180 gradi trasforma un colore nel suo opposto.",
+      "temperature": "Il più scalda l’immagine verso il rosso. Il meno la raffredda verso il blu.",
+      "tint": "Il più aggiunge magenta. Il meno aggiunge verde. Poco basta a correggere una dominante.",
+      "clarity": "Cambia il contrasto locale dei bordi. Il più li marca. Il meno li ammorbidisce. La dimensione di stampa resta uguale."
+    }
   },
   "sortable": {
     "grabbed": "Elemento riordinabile \"{{item}}\" selezionato. Posizione attuale: {{position}} di {{total}}. Usa le frecce per spostarlo e la barra spaziatrice per rilasciarlo.",
